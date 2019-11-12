@@ -1,0 +1,8 @@
+def majorityElement(arr):
+    countMap = {}
+    for e in arr:
+        countMap[e] = countMap.setdefault(e,0)+1
+        if countMap[e]>len(arr)//2:
+            return e
+    return -1
+print majorityElement([])
