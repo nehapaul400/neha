@@ -1,0 +1,17 @@
+def partition(a, n):
+    x = a[0]
+    p, q = 1, n-1
+    while p <= q:
+        if a[p] > x:
+            a[p], a[q] = a[q], a[p]
+            q -= 1
+        else:
+            a[p-1] = a[p]
+            p += 1
+    a[p-1] = x
+
+n = int(input())
+a = []
+
+partition(a, n)
+print(*a)
