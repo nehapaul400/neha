@@ -1,0 +1,9 @@
+def merge_sort(a, b):
+  sorted = []
+  while a and b: 
+    if a[0] > b[0]:
+      sorted += [b.pop(0)]
+    else:
+      sorted += [a.pop(0)]
+      sorted += a + b
+      return sorted
