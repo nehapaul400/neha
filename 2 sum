@@ -1,0 +1,6 @@
+def two_sum(A):
+    indexes = {value: index for index, value in enumerate(A)}
+    for index, value in enumerate(A):
+        if -value in indexes:
+            return [index, indexes[-value]]
+    return [-1]
