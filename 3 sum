@@ -1,0 +1,24 @@
+def get(x):
+  P = {}
+  for j, c in enumerate(x):
+    if c not in P:
+      P[c] = set()
+    P[c].add(j)
+
+  X = list(P.items())
+  D = {}
+  for i in range(len(X)):
+    v1,s1 = X[i]
+    for j in range(i):
+      v2,s2 = X[j]
+      D[v1+v2] = (next(iter(s1)),next(iter(s2)))
+    if len(s1) > 1:
+      t = iter(s1)
+      D[2*v1] = (next(t),next(t))
+
+  for j, c in enumerate(x):
+    if -c in D:
+      a,b = D[-c]
+      return sorted((a+1,b+1,j+1))
+
+  return [-1]
